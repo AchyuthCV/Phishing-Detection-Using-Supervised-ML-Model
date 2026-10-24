@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Phishing Detection</title>
+</head>
+
+<body style="text-align:center; font-family:Arial">
+
+    <h2>Phishing Website Detection</h2>
+
+    <form action="/predict" method="post">
+        <input type="text" name="url" placeholder="Enter Website URL" size="40"><br><br>
+        <button type="submit">Check</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+
+</body>
+
+</html>
