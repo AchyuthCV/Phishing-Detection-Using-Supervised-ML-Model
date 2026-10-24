@@ -47,20 +47,20 @@ This project delivers:
 
 ```mermaid
 graph TD
-    A[User Enters URL] --> B[Flask Web Server]
-    B --> C{Hard Rule Checks}
-    C -- Obvious Phishing Pattern (e.g. '@' symbol) --> G[Flag as Phishing]
-    C -- Passes Heuristic Checks --> D[Feature Extraction Engine]
-    D --> E[Lexical & Structural Analysis: URL length, dots, slashes, subdomains, HTTPS]
-    D --> F[Content Inspection: Forms, external references, anchor tags]
-    E --> H[20-Dimensional Vector]
+    A["User Enters URL"] --> B["Flask Web Server"]
+    B --> C{"Hard Rule Checks"}
+    C -->|"Obvious Phishing Pattern (e.g. '@' symbol)"| G["Flag as Phishing"]
+    C -->|"Passes Heuristic Checks"| D["Feature Extraction Engine"]
+    D --> E["Lexical & Structural Analysis"]
+    D --> F["Content Inspection"]
+    E --> H["20-Dimensional Feature Vector"]
     F --> H
-    H --> I[Random Forest Classifier (model.pkl)]
-    I --> J{Prediction}
-    J -- Class 1 --> K[Legitimate Website ✅]
-    J -- Class 0 --> L[Phishing Website ⚠️]
+    H --> I["Random Forest Classifier (model.pkl)"]
+    I --> J{"Model Prediction"}
+    J -->|"Class 1"| K["Legitimate Website ✅"]
+    J -->|"Class 0"| L["Phishing Website ⚠️"]
     G --> L
-    K --> M[Display on Web UI]
+    K --> M["Display Result on Web UI"]
     L --> M
 ```
 
